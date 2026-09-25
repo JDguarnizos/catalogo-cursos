@@ -1,1 +1,66 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --color-primario: #1f4e9c;
+  --color-primario-oscuro: #13315f;
+  --color-acento: #f2a900;
+  --color-exito: #1e8e5a;
+  --color-peligro: #c0392b;
+  --color-fondo: #f4f6fb;
+  --color-superficie: #ffffff;
+  --color-texto: #1d2433;
+  --color-texto-suave: #5b6478;
+  --radio: 12px;
+  --sombra: 0 2px 10px rgba(19, 49, 95, 0.08);
+}
+ 
+* { box-sizing: border-box; }
+ 
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: var(--color-fondo);
+  color: var(--color-texto);
+  line-height: 1.5;
+}
+ 
+h1, h2, h3 { line-height: 1.2; margin: 0 0 0.5rem; }
+ 
+/* Botones compartidos por varios componentes. */
+.boton {
+  border: none;
+  border-radius: 8px;
+  padding: 0.55rem 1rem;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--color-primario);
+  color: #fff;
+  transition: filter 0.15s;
+}
+.boton:hover:not(:disabled) { filter: brightness(1.12); }
+.boton:disabled { background: #b8bfcc; cursor: not-allowed; }
+.boton--secundario { background: transparent; color: var(--color-primario); border: 2px solid var(--color-primario); }
+.boton--peligro { background: var(--color-peligro); }
+ 
+/* Tarjeta genérica reutilizada en las páginas. */
+.panel {
+  background: var(--color-superficie);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 1.25rem;
+}
+ 
+/* Etiqueta visible que marca el TEMA en la interfaz (ayuda en clase). */
+.etiqueta-tema {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: #e8eefc;
+  color: var(--color-primario);
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+  margin-bottom: 0.5rem;
+}
+/* En contenedores flex en columna, evita que la etiqueta ocupe todo el ancho. */
+.etiqueta-tema { align-self: flex-start; }
