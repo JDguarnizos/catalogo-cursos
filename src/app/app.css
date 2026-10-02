@@ -1,0 +1,27 @@
+:host { display: flex; flex-direction: column; min-height: 100vh; }
+ 
+.encabezado {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: var(--color-primario-oscuro);
+  color: #fff;
+}
+.encabezado h1 { margin: 0; font-size: 1.5rem; }
+.subtitulo { margin: 0; font-size: 0.8rem; opacity: 0.8; }
+ 
+nav { display: flex; gap: 0.25rem; }
+nav a { color: #dbe4ff; text-decoration: none; padding: 0.4rem 0.8rem; border-radius: 999px; font-weight: 600; }
+nav a:hover { background: rgba(255, 255, 255, 0.12); }
+ 
+/* Clase que agrega routerLinkActive al enlace de la página actual. */
+nav a.activo { background: var(--color-acento); color: var(--color-primario-oscuro); }
+ 
+.hora { margin: 0; font-size: 0.8rem; }
+ 
+.contenido { flex: 1; width: min(1100px, 100% - 2rem); margin: 1.5rem auto; }
+ 
+.pie { background: var(--color-primario-oscuro); color: #dbe4ff; text-align: center; font-size: 0.85rem; padding: 0.5rem; }

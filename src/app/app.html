@@ -5,7 +5,24 @@
 
 
   </div>
+  <nav>
+    <a routerLink="/" routerLinkActive="activo" [routerLinkActiveOptions]="{exact: true}">Catálogo</a>
+    <a routerLink="/acerca-de" routerLinkActive="activo">¿Qué es un SPA?</a>
+  </nav>
 
+  <p class="hora"> App cargada a las <strong>{{ horaCarga | date: 'mediumTime' }}</strong></p>
 
 
 </header>
+
+
+<main class="contenido">
+
+<router-outlet></router-outlet>
+
+</main>
+
+<footer class="pie">
+  <p>Desarrollo de Software web Front-End</p>
+  
+</footer>

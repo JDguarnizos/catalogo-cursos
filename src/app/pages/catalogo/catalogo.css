@@ -1,0 +1,31 @@
+/*
+  ARCHIVO: catalogo.css · [TEMA 5 · COMPONENTES] estilos encapsulados
+  Solo afectan a catalogo.html. Ej.: este "h2" NO cambia el h2 de AcercaDe.
+  Los colores var(--...) vienen de src/styles.css (estilos globales).
+*/
+ 
+h2 { margin: 0 0 1rem; color: var(--color-primario-oscuro); }
+ 
+.barra { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: space-between; }
+ 
+.barra input {
+  flex: 1 1 280px;
+  font: inherit;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #c9d1e3;
+  border-radius: 8px;
+}
+ 
+.contador { margin: 0; background: #e8eefc; color: var(--color-primario); padding: 0.4rem 0.9rem; border-radius: 999px; }
+ 
+.aviso { color: var(--color-texto-suave); }
+ 
+/* Rejilla responsiva: tantas columnas como quepan (mínimo 260px cada una). */
+.rejilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+ 
+.vacio { grid-column: 1 / -1; text-align: center; color: var(--color-texto-suave); }

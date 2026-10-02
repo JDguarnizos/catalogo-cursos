@@ -1,0 +1,6 @@
+/* ARCHIVO: acerca-de.css · [TEMA 5 · COMPONENTES] estilos encapsulados
+   Solo afectan a acerca-de.html (este "a" no cambia los enlaces del menú). */
+h2 { margin-top: 0; color: var(--color-primario-oscuro); }
+ol li { margin-bottom: 0.4rem; }
+kbd { background: #eef2fa; border: 1px solid #c9d1e3; border-radius: 4px; padding: 0 0.35rem; }
+a { color: var(--color-primario); font-weight: 600; }
