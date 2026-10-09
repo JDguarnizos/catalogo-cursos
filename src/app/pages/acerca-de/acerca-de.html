@@ -1,1 +1,21 @@
-<p>acerca-de works!</p>
+<section class="panel">
+    <h2>¿Qué es una SPA y cómo se que esta app lo es??</h2>
+
+    <p>
+        Una <strong>Simgle Page Application</strong> descarga <strong>un solo archivo HTML</strong>
+        (index.html). Después, Angular cambia partes de la pantalla sin recargar la página.
+    </p>
+
+    <h3>Experimento con DevTools</h3>
+
+    <ol>
+        <li>Presiona <kbd>F12</kbd> -> pestaña <strong>Netork / Red</strong> -> Filtro <strong>Doc</strong></li>
+        <li>Navega con el menú entre "Catálogo" y "¿Qué es una SPA?"</li>
+        <li>No aparece ningún documento nuevo y la hora "App cargada a las..." <strong>no cambia</strong>.</li>
+        <li>Presiona <kbd>F5</kbd>: ahora si se recarga todo y la hora cambia.</li>
+    </ol>
+
+    <button type="button" class="boton" (click)="sumarClic()">Hice clic {{ clics }} veces</button>
+
+    <p><a routerLink="/">Volver al catálogo</a></p>
+</section>
