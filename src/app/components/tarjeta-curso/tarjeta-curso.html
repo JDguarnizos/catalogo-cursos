@@ -1,0 +1,28 @@
+<article class="tarjeta" [class.inscrita] = "inscrito()">
+    <header>
+    <span>{{curso().codigo}}</span>
+
+    @switch ( curso().area) {
+        @case ('Fundamentos') {<span class="area area--azul">Fundamentos</span>}
+        @case ('Desarrollo') {<span class="area area--verde">Desarrollo</span>}
+        @case ('Datos') {<span class="area area--morada">Datos</span>}
+    }
+
+</header>
+
+<h3>{{curso().nombre}}</h3>
+
+<p class="descripcion">{{curso().descripcion}}</p>
+<p class="datos">{{curso().docente}} · {{curso().creditos}} créditos </p> 
+
+<footer class="acciones">
+    @if (inscrito()) {
+        <span class="ok">Inscrito</span>
+        <button type="button" class="boton boton--secundario" (click)="alPresionarCancelar()">Cancelar</button>
+    }@else {
+        <button type="button" class="boton" (click)="alPresionarInscribir()">Inscribir</button>
+    }
+
+</footer>
+
+</article>

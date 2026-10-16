@@ -1,8 +1,4 @@
-/*
-  ARCHIVO: catalogo.css · [TEMA 5 · COMPONENTES] estilos encapsulados
-  Solo afectan a catalogo.html. Ej.: este "h2" NO cambia el h2 de AcercaDe.
-  Los colores var(--...) vienen de src/styles.css (estilos globales).
-*/
+/* ARCHIVO: catalogo.css · [TEMA 5 · COMPONENTES] estilos encapsulados */
  
 h2 { margin: 0 0 1rem; color: var(--color-primario-oscuro); }
  

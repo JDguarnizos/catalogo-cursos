@@ -1,1 +1,30 @@
-<p>catalogo works!</p>
+<h2>Oferta de cursos</h2>
+
+<div class="barra">
+
+    <input
+    #caja
+    type="search"
+    placeholder="Buscar curso por nombre"
+    (input)="alBuscar(caja.value)"
+    />
+    
+    <p class="contador"> Inscrito en <strong> {{inscritos.length}}</strong> cursos</p>
+
+</div>
+
+@if (busqueda !== '') {
+    <p class="aviso">Resultados para «{{ busqueda }}»</p>
+}
+
+<div class="rejilla">
+@for (curso of cursosFiltrados(); track curso.id ) {
+    <app-tarjeta-curso [curso]="curso"
+    [inscrito]="estaInscrito(curso.id)"
+    (inscribir)="alInscribir($event)"
+    (cancelar)="alCancelar($event)"
+    />
+} @empty {
+    <p class="vacio">No hay cursos disponibles con ese nombre</p>
+}
+</div>
