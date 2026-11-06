@@ -1,30 +1,39 @@
-<h2>Oferta de cursos</h2>
+<!-- ARCHIVO: catalogo.html · lista de cursos. La barra de búsqueda SIEMPRE se ve; debajo, tres estados: cargando / error / datos -->
+<section> <!-- contenedor de la página -->
+    <h2> Oferta de cursos </h2>
 
-<div class="barra">
+    <div class="barra">
+        <!-- barra de búsqueda + contador (queda fuera de los estados para que no desaparezca al cargar) -->
 
-    <input
-    #caja
-    type="search"
-    placeholder="Buscar curso por nombre"
-    (input)="alBuscar(caja.value)"
-    />
-    
-    <p class="contador"> Inscrito en <strong> {{inscritos.length}}</strong> cursos</p>
+        <input #caja type="search" placeholder="Buscar curso por nombre..." (input)="alBuscar(caja.value)" />
+        <!-- #caja = referencia al input; en cada tecla se llama a alBuscar -->
 
-</div>
+        <p class="contador">
+            Inscrito en <strong> {{ inscritos.length }} </strong> cursos </p> <!-- cuántos cursos inscritos -->
 
-@if (busqueda !== '') {
-    <p class="aviso">Resultados para «{{ busqueda }}»</p>
-}
+    </div>
 
-<div class="rejilla">
-@for (curso of cursosFiltrados(); track curso.id ) {
-    <app-tarjeta-curso [curso]="curso"
-    [inscrito]="estaInscrito(curso.id)"
-    (inscribir)="alInscribir($event)"
-    (cancelar)="alCancelar($event)"
-    />
-} @empty {
-    <p class="vacio">No hay cursos disponibles con ese nombre</p>
-}
-</div>
+    @if (busqueda !== ''){ <!-- si hay texto de búsqueda... -->
+    <p class="aviso">Resultados para «{{ busqueda }}» </p> <!-- ...lo mostramos -->
+    }
+
+    @if (cargando()) { <!-- NUEVO · ESTADO 1: esperando la respuesta del servidor -->
+    <p class="estado">Cargando cursos desde el servidor…</p> <!-- mensaje de espera -->
+    } @else if (error()) { <!-- NUEVO · ESTADO 2: la petición falló (error() tiene texto) -->
+    <div class="estado estado--error"> <!-- caja roja -->
+        <p>{{ error() }}</p> <!-- el mensaje de error -->
+        <button type="button" class="boton" (click)="cargar()">Reintentar</button> <!-- vuelve a pedir los datos -->
+    </div>
+    } @else { <!-- ESTADO 3: todo bien, mostramos las tarjetas de siempre -->
+
+    <div class="rejilla"> <!-- cuadrícula de tarjetas -->
+        @for (curso of cursosFiltrados(); track curso.id){ <!-- una tarjeta por curso filtrado -->
+        <app-tarjeta-curso [curso]="curso" [inscrito]="estaInscrito(curso.id)" (inscribir)="alInscribir($event)"
+            (cancelar)="alCancelar($event)" /> <!-- entradas con [ ] · salidas con ( ) -->
+        } @empty {
+        <p class="vacio"> No hay cursos disponibles con ese nombre </p> <!-- si la lista filtrada está vacía -->
+        }
+
+    </div>
+    }
+</section>

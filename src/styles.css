@@ -64,3 +64,9 @@ h1, h2, h3 { line-height: 1.2; margin: 0 0 0.5rem; }
 }
 /* En contenedores flex en columna, evita que la etiqueta ocupe todo el ancho. */
 .etiqueta-tema { align-self: flex-start; }
+
+/* ===== NUEVO (Paso 1): cajas de estado para "cargando" y "error". Las usan varias páginas. ===== */
+.estado { background: #eef1f8; border-radius: 8px; padding: 0.75rem 1rem; margin: 0.75rem 0; } /* caja gris: mensaje de espera */
+.estado--error { background: #fde4e1; color: #7a1c14; border-left: 5px solid var(--color-peligro); } /* caja roja: error */
+.estado--ok { background: #e3f6ec; color: #14532d; border-left: 5px solid var(--color-exito); } /* caja verde: éxito */
+.estado p { margin: 0 0 0.5rem; } /* espacio bajo el texto dentro de la caja */
