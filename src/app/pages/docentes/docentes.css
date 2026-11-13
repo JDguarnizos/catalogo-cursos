@@ -1,0 +1,12 @@
+/* ARCHIVO: docentes.css · estilos de la página de docentes (encapsulados: solo afectan a esta página). */
+
+h2 { margin: 0 0 0.5rem; color: var(--color-primario-oscuro); } /* título de la página */
+.intro { color: var(--color-texto-suave); margin: 0 0 1rem; } /* texto explicativo en gris */
+code { background: #eef1f8; padding: 0.1rem 0.4rem; border-radius: 6px; } /* resalta la dirección */
+
+/* Rejilla responsiva: tantas columnas como quepan (mínimo 260px cada una). */
+.rejilla { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+
+.docente h3 { margin: 0; color: var(--color-primario-oscuro); font-size: 1.05rem; } /* nombre del docente */
+.docente p { margin: 0.2rem 0; font-size: 0.9rem; } /* líneas de datos */
+.usuario { color: var(--color-texto-suave); } /* @usuario en gris */

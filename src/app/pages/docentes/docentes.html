@@ -1,0 +1,25 @@
+<!-- ARCHIVO: docentes.html · docentes de una API externa, con estados cargando / error / datos -->
+<section> <!-- contenedor de la página -->
+  <h2>Docentes (API externa)</h2> <!-- título -->
+  <p class="intro">Estos datos NO están en nuestro proyecto: llegan por internet desde <code>jsonplaceholder.typicode.com</code>.</p> <!-- aclaración para la clase -->
+
+  @if (cargando()) { <!-- ESTADO 1: esperando -->
+    <p class="estado">Cargando docentes…</p>
+  } @else if (error()) { <!-- ESTADO 2: falló -->
+    <div class="estado estado--error">
+      <p>{{ error() }}</p> <!-- mensaje de error -->
+      <button type="button" class="boton" (click)="cargar()">Reintentar</button> <!-- vuelve a pedir -->
+    </div>
+  } @else { <!-- ESTADO 3: datos listos -->
+    <div class="rejilla"> <!-- cuadrícula -->
+      @for (docente of docentes(); track docente.id) { <!-- una tarjeta por docente; track = clave única -->
+        <article class="panel docente"> <!-- .panel viene de styles.css -->
+          <h3>{{ docente.name }}</h3> <!-- nombre -->
+          <p class="usuario">&#64;{{ docente.username }}</p> <!-- &#64; es el símbolo @ (en plantillas Angular el @ está reservado) -->
+          <p>✉ {{ docente.email }}</p> <!-- correo -->
+          <p>☎ {{ docente.phone }}</p> <!-- teléfono -->
+        </article>
+      }
+    </div>
+  }
+</section>
